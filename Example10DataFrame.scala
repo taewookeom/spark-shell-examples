@@ -1,0 +1,7 @@
+val df = sqlContext.read.json("examples/src/main/resources/people.json")
+df.printSchema()
+df.show()
+df.explain(true)
+df.select(df("name"), df("age") + 1).show()
+df.filter(df("age") > 21).show()
+df.groupBy("age").count().show()
